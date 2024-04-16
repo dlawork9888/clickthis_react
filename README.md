@@ -7,7 +7,7 @@ for Deploy Practice ...
 ## Latest ! - 2024.04.17
 ```
 - HTTPS 적용 완료 !
-   - API ENDPOINT 변경
+   - 이에 따른 API ENDPOINT 변경
 - NGINX 설정 완료 !
 ```
 
