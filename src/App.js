@@ -7,9 +7,13 @@ import React, { useEffect, useState } from 'react';
 import './App.css'; // App, AppText
 
 function App() {
-  // 루프백 실패로 인한 퍼블릭 어드레스 State...
-  const [APITo, setAPITO] = useState('http://ec2-3-35-120-59.ap-northeast-2.compute.amazonaws.com:8002/count_click/click/')
+
+  // API ENDPOINT
+  const [APITo, setAPITO] = useState('https://clickthis.dlawork9888.site/clickthis_django/count_clicks/click/')
   console.log("APITo:",APITo)
+
+
+
   // 누를 때 POST요청 보내는 함수
   const postCount = () => {
     //fetch
