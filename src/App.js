@@ -5,7 +5,7 @@
 
 import React, { useEffect, useState } from 'react';
 import './App.css'; // App, AppText
-
+import Sidebar from './components/Sidebar'
 function App() {
 
   // API ENDPOINT
@@ -72,12 +72,27 @@ useEffect(() => {
       setCount('Error');
     })
   },[]) 
-
-
 // 의존성 배열은 당연히 없음 <= 페이지가 로드될 때 실행되는 Effect를 의미
+  
+
+
+  //Sidebar Control
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+  const toggleSidebar = () => {
+    setIsSidebarVisible(!isSidebarVisible);
+  };
+
+
+
 
 ////////////////////////////////return part
   return (
+    <div 
+      className="App"
+      style = {{
+        flexDirection:'row'
+      }}
+    >
     <div 
       className="App"
       style = {{
@@ -102,23 +117,47 @@ useEffect(() => {
         style = {{
           color : '#FFFFFF',
           fontSize : 30,
-          marginTop:20
+          marginTop:20,
         }}
       >
         {count}
       </div>
-      <a href="https://github.com/dlawork9888" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+{/* github*/}
+      <a 
+        href="https://github.com/dlawork9888" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        style={{ 
+          textDecoration: 'none' , 
+          marginTop: 100
+          }}
+      >
         <div 
           className="AppText"
           style={{
             color : '#888888',
             fontSize : 20,
-            marginTop:100
           }}
         >
           github.com/dlawork9888
         </div>
       </a>
+    </div>
+{/*Sidebar*/}
+      <div 
+        className='AppText'
+        style={{
+          color : '#FFFFFF',
+          fontSize : 40,
+          position:'fixed',
+          top:'50%',
+          right:20
+        }}
+        onClick={toggleSidebar}
+      >
+        {"<"}
+      </div>
+      <Sidebar isVisible={isSidebarVisible} onClose={toggleSidebar} />
     </div>
   );
 }
